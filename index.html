@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کۆمپانیای ڕووناکی و پاراستن</title>
+    <style>
+        /* بانگکردنی فۆنتە تایبەتەکە */
+        @font-face {
+            font-family: 'Rabar';
+            src: url('Rabar_038.ttf') format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rabar', Tahoma, Arial;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* هێدەر و ناڤبار */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        /* بەشی سەرەکی (Hero Section) */
+        .hero {
+            height: 100 dark;
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1509391366360-feaffa64e4c9?auto=format&fit=crop&w=1350&q=80'); /* وێنەی سۆلار */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 60px;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.5rem; margin-bottom: 2rem; }
+
+        /* بەشەکان */
+        .container {
+            padding: 4rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        /* بەشی ئەباوت */
+        .about-section {
+            background: #2c3e50;
+            color: white;
+            padding: 4rem 10%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .about-text { flex: 1; min-width: 300px; }
+        .about-info { 
+            flex: 1; 
+            min-width: 300px; 
+            background: rgba(255,255,255,0.1); 
+            padding: 2rem; 
+            border-radius: 10px;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        /* فووتەر */
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* وێنەی زیاتر بۆ گالێری */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 2rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>لۆگۆی کۆمپانیا</h2>
+        <nav>
+            <a href="#home">سەرەکی</a>
+            <a href="#services">خزمەتگوزارییەکان</a>
+            <a href="#about">دەربارەی ئێمە</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>داهاتوویەکی ڕووناک و پارێزراو</h1>
+        <p>باشترین سیستەمی سۆلار و کامێرای چاودێری لای ئێمەیە</p>
+    </section>
+
+    <div class="container" id="services">
+        <h2 class="section-title">خزمەتگوزارییەکانی ئێمە</h2>
+        <div class="services">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" alt="Solar Energy">
+                <div class="card-content">
+                    <h3>سیستەمی وزەی خۆر (Solar)</h3>
+                    <p>دابینکردنی کارەبای بەردەوام و بێدەنگ بە بەکارهێنانی نوێترین تەکنەلۆژیای پانێڵی خۆر.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" alt="CCTV Cameras">
+                <div class="card-content">
+                    <h3>کامێرای چاودێری</h3>
+                    <p>پاراستنی ماڵ و شوێنەکانتان بە کامێرای زیرەک و کوالێتی 4K بە بینینی شەوانە.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80" alt="Maintenance">
+                <div class="card-content">
+                    <h3>چاککردنەوە و پشتگیری</h3>
+                    <p>تیمێکی شارەزا ئامادەیە بۆ دامەزراندن و چاککردنەوەی هەموو جۆرە سیستەمەکان.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="about-section" id="about">
+        <div class="about-text">
+            <h2>دەربارەی کۆمپانیا</h2>
+            <p>کۆمپانیای ئێمە پێشەنگە لە دابینکردنی چارەسەری وزەی نوێبووەوە و سیستەمی ئاسایشی پێشکەوتوو. ئامانجمان خزمەتکردنی هاوڵاتیانە بە باشترین کوالێتی و گونجاوترین نرخ.</p>
+            
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=400&q=80" alt="Solar panel">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=80" alt="Team">
+                <img src="https://images.unsplash.com/photo-1524143878510-e3b8d6312402?auto=format&fit=crop&w=400&q=80" alt="Camera">
+            </div>
+        </div>
+
+        <div class="about-info">
+            <h3>زانیاری پەیوەندی</h3>
+            <br>
+            <div class="info-item">
+                📍 ناونیشان: هەرێمی کوردستان، سلێمانی، شەقامی بازنەیی مەلیک مەحمود
+            </div>
+            <div class="info-item">
+                📞 ژمارە تەلەفۆن: 0750 123 4567 | 0770 123 4567
+            </div>
+            <div class="info-item">
+                ✉️ ئیمەیڵ: info@company.com
+            </div>
+            <div class="info-item">
+                ⏰ کاتی کارکردن: ٩ی بەیانی تا ٦ی ئێوارە
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>هەموو مافەکان پارێزراوە بۆ کۆمپانیای وزە و پاراستن &copy; 2024</p>
+    </footer>
+
+</body>
+</html>
