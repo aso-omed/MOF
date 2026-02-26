@@ -3,287 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreenTech | سیستەمی سۆلار و پاراستن</title>
+    <title>Advanced Solar & Security Systems</title>
     <style>
-        /* بانگکردنی فۆنتە نوێیەکە */
         @font-face {
-            font-family: 'RabarCustom';
+            font-family: 'Rabar041';
             src: url('Rabar_041.ttf') format('truetype');
         }
 
         :root {
-            --primary-green: #2ecc71;
-            --dark-green: #1b5e20;
-            --accent-yellow: #f1c40f;
-            --dark-bg: #0a0f0b;
-            --glass: rgba(255, 255, 255, 0.1);
+            --main-green: #155724; /* سەوزی تۆخی شاهانە */
+            --neon-green: #28a745;
+            --gold: #ffc107;
+            --dark: #050805;
         }
 
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'RabarCustom', Tahoma, sans-serif;
-            scroll-behavior: smooth;
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Rabar041', sans-serif;
         }
 
-        body {
-            background-color: var(--dark-bg);
-            color: #e0e0e0;
-            overflow-x: hidden;
-        }
+        body { background-color: var(--dark); color: #fff; line-height: 1.8; }
 
-        /* ستایلی لۆگۆ و هێدەر */
-        header {
-            background: rgba(10, 15, 11, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--primary-green);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+        /* Navigation */
+        nav {
+            background: rgba(5, 8, 5, 0.9);
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--neon-green);
         }
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+        .logo img { height: 60px; transition: 0.3s; }
+        .logo img:hover { transform: rotate(5deg) scale(1.1); }
 
-        .logo-circle {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, var(--primary-green), var(--accent-yellow));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: black;
-            box-shadow: 0 0 15px var(--primary-green);
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-right: 25px;
-            font-size: 1.1rem;
-            transition: 0.3s;
-        }
-
-        nav a:hover { color: var(--primary-green); }
-
-        /* هیرۆ - کاریگەری ڤیدیۆیی و وێنە */
+        /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(10,15,11,1)), 
-                        url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1600&q=80');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('hero-bg.jpg');
             background-size: cover;
-            background-position: center;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
             padding: 20px;
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            color: var(--primary-green);
-            text-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
-            margin-bottom: 20px;
+        .hero h1 { font-size: 3.5rem; color: var(--neon-green); margin-bottom: 15px; }
+
+        /* Portfolio/Gallery Section */
+        .gallery-container {
+            padding: 80px 10%;
+            background: #0a0f0a;
         }
 
-        /* بەشی تایبەتمەندییە زۆرەکان */
-        .features-grid {
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            padding: 50px 10%;
-            background: #0d140e;
+            margin-top: 40px;
         }
 
-        .feature-box {
-            background: var(--glass);
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(46, 204, 113, 0.2);
-            text-align: center;
-            transition: 0.4s;
-        }
-
-        .feature-box:hover {
-            background: rgba(46, 204, 113, 0.1);
-            transform: translateY(-10px);
-            border-color: var(--primary-green);
-        }
-
-        /* سێرڤسەکان بە وێنەی گەورە */
-        .service-large {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            padding: 60px 10%;
-            gap: 40px;
-        }
-
-        .service-large:nth-child(even) { flex-direction: row-reverse; }
-
-        .service-img {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 30px;
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 2px solid var(--main-green);
+            height: 300px;
         }
 
-        .service-img img { width: 100%; display: block; transition: 0.5s; }
-        .service-img:hover img { transform: scale(1.1); }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: 0.5s;
+        }
 
-        .service-info { flex: 1; min-width: 300px; }
-        .service-info h2 { color: var(--primary-green); font-size: 2.5rem; margin-bottom: 20px; }
+        .gallery-item:hover img { transform: scale(1.2); filter: brightness(40%); }
 
-        /* بەشی ئەباوت و کۆنتاکت */
-        .contact-card {
-            background: linear-gradient(135deg, #1b5e20, #0a0f0b);
-            margin: 50px 10%;
-            border-radius: 40px;
-            padding: 50px;
+        .overlay-text {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0; transition: 0.5s; color: var(--gold);
+            text-align: center; width: 80%;
+        }
+
+        .gallery-item:hover .overlay-text { opacity: 1; }
+
+        /* Features List */
+        .specs {
+            background: var(--main-green);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Footer & About */
+        footer {
+            background: #000;
+            padding: 60px 10% 20px;
+            border-top: 3px solid var(--neon-green);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
         }
 
-        .info-box { font-size: 1.3rem; line-height: 2.5; }
-        .info-box span { color: var(--accent-yellow); font-weight: bold; }
+        .contact-info h3 { color: var(--neon-green); margin-bottom: 20px; }
+        .contact-info p { margin-bottom: 10px; font-size: 1.1rem; }
 
-        /* فۆرمی خێرا */
-        .quick-form input {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--primary-green);
+        .btn-call {
+            display: inline-block;
+            background: var(--neon-green);
             color: white;
-            border-radius: 10px;
-        }
-
-        button {
-            background: var(--primary-green);
-            color: black;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 10px;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
             font-weight: bold;
-            cursor: pointer;
-            font-size: 1.1rem;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .contact-card { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-area">
-            <div class="logo-circle">GT</div>
-            <h2 style="color: var(--primary-green);">GREEN TECH</h2>
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="کۆمپانیا"> </div>
+        <div>
+            <a href="#home" style="color: white; margin-left: 20px; text-decoration: none;">سەرەکی</a>
+            <a href="#about" style="color: white; text-decoration: none;">پەیوەندی</a>
         </div>
-        <nav>
-            <a href="#home">سەرەکی</a>
-            <a href="#services">خزمەتگوزاری</a>
-            <a href="#features">تایبەتمەندی</a>
-            <a href="#about">پەیوەندی</a>
-        </nav>
-    </header>
+    </nav>
 
     <section class="hero" id="home">
-        <h1>وزەی بێبڕانەوە، پاراستنی هەمیشەیی</h1>
-        <p style="font-size: 1.5rem; max-width: 800px;">تێکەڵکردنی هێزی خۆر و ژیری دەستکرد بۆ دابینکردنی ئاسایش و کارەبای ماڵەکانتان</p>
-        <br>
-        <button onclick="window.location.href='#about'">داواکردنی نرخ</button>
-    </section>
-
-    <section id="features" class="features-grid">
-        <div class="feature-box">
-            <h3>☀️ شەحنکردنەوەی خێرا</h3>
-            <p>بەکارهێنانی نوێترین خانەی مۆنۆ-کریستاڵ</p>
-        </div>
-        <div class="feature-box">
-            <h3>🛡️ پاراستنی 24/7</h3>
-            <p>چاودێری ڕاستەوخۆ لەڕێگەی مۆبایلەوە</p>
-        </div>
-        <div class="feature-box">
-            <h3>🔋 پاتری لیتیۆم</h3>
-            <p>تەمەنی درێژ و سەلامەتی بەرز بۆ شەو</p>
-        </div>
-        <div class="feature-box">
-            <h3>🤖 ناسینەوەی دەموچاو</h3>
-            <p>کامێرای زیرەک بە تەکنەلۆژیای AI</p>
+        <div>
+            <h1>تەکنەلۆژیای سەوز و پاراستنی زیرەک</h1>
+            <p>پسپۆڕ لە دابینکردنی سیستەمی سۆلاری پێشکەوتوو و کامێرای چاودێری ئاست بەرز</p>
         </div>
     </section>
 
-    <section id="services">
-        <div class="service-large">
-            <div class="service-img">
-                <img src="https://images.unsplash.com/photo-1509391366360-feaffa64e4c9?auto=format&fit=crop&w=1000&q=80" alt="Solar">
+    <div class="gallery-container">
+        <h2 style="text-align: center; font-size: 2.5rem; color: var(--neon-green);">کارەکانی ئێمە</h2>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="solar1.jpg" alt="Solar Project">
+                <div class="overlay-text">
+                    <h3>سیستەمی ٥٠ ئەمپێری</h3>
+                    <p>پڕۆژەی ماڵێکی تایبەت لە سلێمانی</p>
+                </div>
             </div>
-            <div class="service-info">
-                <h2>سیستەمی سۆلاری پێشکەوتوو</h2>
-                <p>ئێمە تەنها پانێڵ دانانێین، ئێمە وێستگەیەکی بەرهەمهێنانی وزە لەسەر سەربانی ماڵەکەت دروست دەکەین. بە گەرەنتی ٢٥ ساڵ و سیستەمی ئۆنلاین بۆ بینینی ڕێژەی بەرهەمێنان.</p>
-                <br>
-                <ul style="list-style: none;">
-                    <li>✅ کەمکردنەوەی تێچووی کارەبا بە ڕێژەی ٩٠٪</li>
-                    <li>✅ دۆستی ژینگە و بێ دەنگ</li>
-                    <li>✅ ئینڤێرتەری زیرەکی هایبرید</li>
+
+            <div class="gallery-item">
+                <img src="camera1.jpg" alt="CCTV Project">
+                <div class="overlay-text">
+                    <h3>سیستەمی IP Camera</h3>
+                    <p>پاراستنی کۆگاکانی پیشەسازی</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="solar2.jpg" alt="Solar Project">
+                <div class="overlay-text">
+                    <h3>پانێڵی مۆنۆ کریستاڵ</h3>
+                    <p>بەرزترین کوالێتی بەرهەمهێنان</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="specs">
+            <div>
+                <h3>تایبەتمەندییە تەکنیکییەکانی سۆلار:</h3>
+                <ul>
+                    <li>✔ پاتری لیتیۆم بە گەرەنتی ٥ ساڵ</li>
+                    <li>✔ ئینڤێرتەری هایبرید (Off-Grid / On-Grid)</li>
+                    <li>✔ پاراستنی تەواو دژی لێدانی هەورەبروسکە</li>
+                </ul>
+            </div>
+            <div>
+                <h3>تایبەتمەندییەکانی پاراستن:</h3>
+                <ul>
+                    <li>✔ کامێرای شەوانە ڕەنگاوڕەنگ (Full Color)</li>
+                    <li>✔ تۆمارکردنی دەنگ و ڕەنگ بە کوالێتی 4K</li>
+                    <li>✔ بەستنەوە بە مۆبایل لە هەر شوێنێکی جیهان بیت</li>
                 </ul>
             </div>
         </div>
+    </div>
 
-        <div class="service-large">
-            <div class="service-info">
-                <h2>کامێرای چاودێری و زیرەکی دەستکرد</h2>
-                <p>بەهێزترین سیستەمی پاراستن کە توانای ناسینەوەی جووڵە و ئاگادارکردنەوەی خێرای هەیە بۆ مۆبایلەکەت، تەنانەت لە تاریکی تەواویشدا.</p>
-                <br>
-                <ul style="list-style: none;">
-                    <li>✅ بینینی شەوانەی ڕەنگاوڕەنگ (ColorVu)</li>
-                    <li>✅ بەرگری تەواو دژی باران و تۆز</li>
-                    <li>✅ هەڵگرتنی زانیاری بۆ ماوەی درێژ</li>
-                </ul>
+    <footer id="about">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>دەربارەی ئێمە</h3>
+                <p>ئێمە تیمێکی ئەندازیاری پسپۆڕین لە بواری وزەی نوێبووەوە و ئاسایشی ئەلیکترۆنی، زیاتر لە ١٠ ساڵ ئەزموونمان هەیە لە خزمەتکردنی کوردستان.</p>
             </div>
-            <div class="service-img">
-                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1000&q=80" alt="Camera">
+            
+            <div class="contact-info">
+                <h3>پەیوەندیمان پێوە بکە</h3>
+                <p>📍 ناونیشان: سلێمانی، شەقامی مەلیک مەحمود، بەرامبەر گوندەکانی ئەڵمانی</p>
+                <p>📞 تەلەفۆن: 0750 000 0000</p>
+                <p>💬 واتسئەپ: 0770 000 0000</p>
+                <a href="tel:07500000000" class="btn-call">پەیوەندی بکە</a>
             </div>
         </div>
-    </section>
-
-    <section id="about" class="contact-card">
-        <div class="info-box">
-            <h2 style="color: var(--primary-green); font-size: 2.5rem; margin-bottom: 20px;">پەیوەندیمان پێوە بکە</h2>
-            <p>📍 <span>ناونیشان:</span> سلێمانی - شەقامی سالم - تەلاری بازرگانی</p>
-            <p>📞 <span>تەلەفۆن:</span> 0750 111 2233</p>
-            <p>📱 <span>واتسئەپ:</span> 0770 444 5566</p>
-            <p>📧 <span>ئیمەیڵ:</span> sales@greentech.krd</p>
-        </div>
-        <div class="quick-form">
-            <h3 style="margin-bottom: 20px;">داوای پەیوەندی بکە</h3>
-            <input type="text" placeholder="ناوی تەواو">
-            <input type="tel" placeholder="ژمارەی تەلەفۆن">
-            <textarea style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--primary-green); color: white; border-radius: 10px; padding: 15px; margin-bottom: 15px;" rows="4" placeholder="چیت پێویستە؟"></textarea>
-            <button style="width: 100%;">ناردنی داواکاری</button>
-        </div>
-    </section>
-
-    <footer style="text-align: center; padding: 40px; border-top: 1px solid #222;">
-        <p>گەشەپێدراوە بە شانازییەوە بۆ باشترین کۆمپانیای سۆلار © 2026</p>
+        <p style="text-align: center; margin-top: 50px; color: #555;">© ٢٠٢٤ هەموو مافەکان پارێزراوە بۆ کۆمپانیاکەت</p>
     </footer>
 
 </body>
